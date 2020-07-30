@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        //Rock Paper Scissors array
+        var rps = ['r', 'p', 's'];
+        //variable for storing random choice
+        var cpuRps;
+        var win = 0
+        var loss = 0;
+        var tie = 0;
+
+        //iterate 10 times
+        for (let i = 0; i < 10; i++) {
+            //generate a random value or r p or s
+            var getRps = Math.floor(Math.random() * 3);
+            //player chooses 'r' 'p' or 's' 
+            var playerRps = prompt('Rock, Paper, or Scissors?');
+            console.log('Player choice: ' + playerRps);
+            //compare random value to player chosen input
+            switch (getRps) {
+                case 0: cpuRps = 'r';
+                break;
+
+                case 1: cpuRps = 'p';
+                break;
+
+                case 2: cpuRps = 's';
+                break;
+
+                default: console.log('No choice made');
+                break;
+            }
+            console.log('cpuRps: ' + cpuRps);
+        }
+        //If the player selects 'r'
+        if (playerRps === 'r') {
+            switch (cpuRps) {
+                case 'r': tie++;
+                break;
+                case 'p': loss++;
+                break;
+                case 's': win++;
+                default: break;
+            }   
+        }
+
+        //If the player selects 'p'
+        if (playerRps === 'p') {
+            switch (cpuRps) {
+                case 'r': win++;
+                break;
+                case 'p': tie++;
+                break;
+                case 's': loss++;
+                default: break;
+            }
+        }
+
+        //If the player selects 's'
+        if (playerRps === 's') {
+            switch (cpuRps) {
+                case 'r': loss++;
+                break;
+                case 'p': win++;
+                break;
+                case 's': tie++;
+                default: break;
+            }    
+        }
+
+        //debug
+        console.log('win: ' + win);
+        console.log('tie: ' + tie);
+        console.log('loss: ' + loss);
+        //show results after 10 iterations
+        alert('wins: ' + win + '\n' + 
+            'losses: ' + loss + '\n' + 
+            'ties: ' + tie);
+    </script>
+</body>
+</html>
