@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
+
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Rock Paper Scissors</title>
+
 </head>
-<body>
-    <script>
-        //variable for storing random choice
-        var win = 0
-        var loss = 0;
-        var tie = 0;
 
-        //iterate 10 times
-        for (let i = 0; i < 10; i++) {
-            //generate a random value of r p or s
-            var getRps = Math.floor(Math.random() * 3);
-            //player chooses 'r' 'p' or 's' 
-            var playerRps = prompt('Rock, Paper, or Scissors?');
+    <body>
+        <script>
+            //variable for storing random choice
+            var win = 0
+            var loss = 0;
+            var tie = 0;
 
-            //If the player selects 'r'
-            if (playerRps.charAt(0).toLowerCase() === 'r') {
-                switch (getRps) {
-                    case 0: tie++;
-                    break;
-                    case 1: loss++;
-                    break;
-                    case 2: win++;
-                    default: break;
-                }   
-            }
+            //iterate 10 times
+            for (let i = 0; i < 10; i++) {
 
-            //If the player selects 'p'
-            if (playerRps.charAt(0).toLowerCase() === 'p') {
-                switch (getRps) {
-                    case 0: win++;
-                    break;
-                    case 1: tie++;
-                    break;
-                    case 2: loss++;
-                    default: break;
+                //generate a random value of r(0) p(1) or s(2)
+                var getRps = Math.floor(Math.random() * 3);
+
+                //player chooses 'r' 'p' or 's' 
+                var playerRps = prompt('Rock, Paper, or Scissors?');
+
+                //iterate through player choices
+                if (playerRps.charAt(0).toLowerCase() === 'r') { //if the player selects 'r'
+                    switch (getRps) {
+                        case 0: tie++;
+                        break;
+                        case 1: loss++;
+                        break;
+                        case 2: win++;
+                        default: break;
+                    }   
+                } else if (playerRps.charAt(0).toLowerCase() === 'p') { //if the player selects 'p'
+                    switch (getRps) {
+                        case 0: win++;
+                        break;
+                        case 1: tie++;
+                        break;
+                        case 2: loss++;
+                        default: break;
+                    }
+                } else if (playerRps.charAt(0).toLowerCase() === 's') { //if the player selects 's'
+                    switch (getRps) {
+                        case 0: loss++;
+                        break;
+                        case 1: win++;
+                        break;
+                        case 2: tie++;
+                        default: break;
+                    }    
                 }
             }
 
-            //If the player selects 's'
-            if (playerRps.charAt(0).toLowerCase() === 's') {
-                switch (getRps) {
-                    case 0: loss++;
-                    break;
-                    case 1: win++;
-                    break;
-                    case 2: tie++;
-                    default: break;
-                }    
-            }
-        }
+            //show results after 10 iterations
+            alert('wins: ' + win + '\n' + 
+                'losses: ' + loss + '\n' + 
+                'ties: ' + tie);
+        </script>
 
-        //debug
-        console.log('win: ' + win);
-        console.log('tie: ' + tie);
-        console.log('loss: ' + loss);
-        //show results after 10 iterations
-        alert('wins: ' + win + '\n' + 
-            'losses: ' + loss + '\n' + 
-            'ties: ' + tie);
-    </script>
-</body>
+    </body>
+
 </html>
